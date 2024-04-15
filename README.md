@@ -5,3 +5,5 @@ Welcome to my Python: #100daysofcode repository. In this repository, you will se
 ![image](https://github.com/keiransystem14/100daysofcode/assets/72732443/a5d01150-b36c-42af-8699-5e2632417201)
 
 ## Python Projects from Day 1 to Day 100 of 100DaysOfCode
+
+Day 1 - 
