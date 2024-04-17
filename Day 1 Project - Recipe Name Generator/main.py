@@ -10,6 +10,6 @@ Country = input ("What is your favourite country? \n")
 Food = input("What is your favourite food? \n")
 
 #Use string concatenation to combine all the answers into one.
-Recipe_name = print(Name + " " + Country + " " + Food)
+print(Name + " " + Country + " " + Food)
 
 
