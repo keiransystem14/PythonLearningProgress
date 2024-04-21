@@ -1,12 +1,14 @@
 print("\nWeclome to Missing: A Detective's Mystery\n")
 
-# Detective asking Apurva's friends for a room to investigate during the cause of Apurva missing inside his mansion.
+# Detective asking the user to respond the name of person that went missing
 
 person = input("\nWho's the missing person?\n")
 
+# Detective asked for the location in which the disapperance took place.
+
 location = input(f"\nGive me a the location of where {person} is missing \n")
 
-# Detective Fetchard enteres the haunted house. His friends open the door for him. 
+# Detective Fetchard enteres the specified location. 
 
 print(f"\nDetective Fetchard enters the {location} and is currently investigating....... \n")
 
