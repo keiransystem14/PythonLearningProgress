@@ -12,10 +12,10 @@ print("\nWelcome to Elements Clash!\n")
 print("\nChoose your element\n")
 print("1. Fire")
 print("2. Water")
-print("3. Earth")
+print("3. Earth\n")
 
 # Player 1 selects a choice out of the four elements which then converts the input from a string into an integer
-player1_choice = int(input("Enter your choice (1-3): "))
+player1_choice = int(input("Player 1: Enter your choice (1-3): "))
 
 # Player two makes a random choice from numbers 1 to 3 which represent 1. Fire, 2. Water, 3. Earth.
 player2_choice = random.randint(1, 3)
@@ -47,13 +47,12 @@ if (
 ) and (
     player1_choice == elements_sw[1][0][0] or player2_choice == elements_sw[1][0][0]
 ):
-    print(f"Player 2 chooses: {player2_choice}")
+    print(f"\nPlayer 1 chooses: {player1_choice}\n")
+    print(f"Player 2 chooses: {player2_choice}\n")
     print("Water Wins!\n")
     print(
-        f"{elements_sw[1][0][0]} {elements_sw[1][0][1][1]} {elements_sw[1][0][1][0]}!!!"
+        f"{elements_sw[1][0][0]} {elements_sw[1][0][1][1]} {elements_sw[1][0][1][0]}!!!\n"
     )
-
-    print(f"{player1_choice or player2_choice} wins!")
 
 # Fire wins()
 
@@ -62,9 +61,12 @@ elif (
 ) and (
     player2_choice == elements_sw[2][0][0] or player1_choice == elements_sw[2][0][0]
 ):
-    print(f"Player 2 chooses: {player2_choice}")
-    print("Fire Wins! \n")
-    print(f"{elements_sw[0][0][0]} {elements_sw[0][0][2][1]} {elements_sw[0][0][2][0]}")
+    print(f"\nPlayer 1 chooses: {player1_choice}\n")
+    print(f"Player 2 chooses: {player2_choice}\n")
+    print("Fire Wins!\n")
+    print(
+        f"{elements_sw[0][0][0]} {elements_sw[0][0][2][1]} {elements_sw[0][0][2][0]}!!!\n"
+    )
 
 
 # Earth wins ()
@@ -74,9 +76,12 @@ elif (
 ) and (
     player2_choice == elements_sw[2][0][0] or player1_choice == elements_sw[2][0][0]
 ):
-    print(f"Player 2 chooses: {player2_choice}")
+    print(f"\nPlayer 1 chooses: {player1_choice}\n")
+    print(f"Player 2 chooses: {player2_choice}\n")
     print("Earth Wins!\n")
-    print(f"{elements_sw[2][0][0]} {elements_sw[2][0][1][1]} {elements_sw[2][0][1][0]}")
+    print(
+        f"{elements_sw[2][0][0]} {elements_sw[2][0][1][1]} {elements_sw[2][0][1][0]}!!!\n"
+    )
 
 else:
-    print("Both Player 1 and Player 2 Draw")
+    print("\nBoth Player 1 and Player 2 Draw!!")
