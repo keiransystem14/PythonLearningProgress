@@ -7,7 +7,7 @@ earth_element = [["Earth", ["Water", "Absorbs"], ["Fire", "Burns"]]]
 
 elements_sw = [fire_element, water_element, earth_element]
 
-print("\nWelcome to Elements Clash!\n")
+print("\nWelcome to Elements Clash Game!\n")
 
 print("\nChoose your element\n")
 print("1. Fire")
@@ -21,7 +21,7 @@ player1_choice = int(input("Player 1: Enter your choice (1-3): "))
 player2_choice = random.randint(1, 3)
 
 
-# If player1 or player 2selects option number 1, it's Fire which is accessible in the elements_sw nested list in array [0][0][0]
+# If player1 or player 2 selects option number 1, it's Fire which is accessible in the elements_sw nested list in array [0][0][0]
 if player1_choice == 1:
     player1_choice = elements_sw[0][0][0]
 elif player1_choice == 2:
@@ -37,12 +37,7 @@ elif player2_choice == 2:
 elif player2_choice == 3:
     player2_choice = elements_sw[2][0][0]
 
-# Create variables called Player1_result and player2_result
-Player1_result = "Player 1"
-Player2_result = "Player 2"
-
-
-# # Create a condition where Fire beats Water, Earth beats water and Fire beats earth
+# Create a condition where Fire beats Water, Earth beats water and Fire beats earth
 
 # Water wins()
 
@@ -53,15 +48,13 @@ if (
 ):
     print(f"\nPlayer 1 chooses: {player1_choice}\nPlayer 2 chooses: {player2_choice}\n")
 
-    print("Water Wins!\n")
-
     if player1_choice == elements_sw[1][0][0]:
-        print("Player 1 Wins!!")
+        print("\nPlayer 1 Wins!!")
     elif player2_choice == elements_sw[1][0][0]:
-        print("Player 2 Wins!!")
+        print("\nPlayer 2 Wins!!")
 
     print(
-        f"{elements_sw[1][0][0]} {elements_sw[1][0][1][1]} {elements_sw[1][0][1][0]}!!!\n"
+        f"\n{elements_sw[1][0][0]} {elements_sw[1][0][1][1]} {elements_sw[1][0][1][0]}!!!\n"
     )
 
 # Fire wins()
@@ -72,15 +65,14 @@ elif (
     player1_choice == elements_sw[2][0][0] or player2_choice == elements_sw[2][0][0]
 ):
     print(f"\nPlayer 1 chooses: {player1_choice}\nPlayer 2 chooses: {player2_choice}\n")
-    print("Fire Wins!\n")
 
     if player1_choice == elements_sw[0][0][0]:
-        print("Player 1 Wins!!")
+        print("\nPlayer 1 Wins!!")
     elif player2_choice == elements_sw[0][0][0]:
-        print("Player 2 Wins!!")
+        print("\nPlayer 2 Wins!!")
 
     print(
-        f"{elements_sw[0][0][0]} {elements_sw[0][0][2][1]} {elements_sw[0][0][2][0]}!!!\n"
+        f"\n{elements_sw[0][0][0]} {elements_sw[0][0][2][1]} {elements_sw[0][0][2][0]}!!!\n"
     )
 
 
@@ -92,16 +84,15 @@ elif (
     player1_choice == elements_sw[2][0][0] or player2_choice == elements_sw[2][0][0]
 ):
     print(f"\nPlayer 1 chooses: {player1_choice}\nPlayer 2 chooses: {player2_choice}\n")
-    print("Earth Wins!\n")
 
     if player1_choice == elements_sw[2][0][0]:
-        print("Player 1 Wins!!")
+        print("\nPlayer 1 Wins!!")
     elif player2_choice == elements_sw[2][0][0]:
-        print("Player 2 Wins!!")
+        print("\nPlayer 2 Wins!!")
 
     print(
-        f"{elements_sw[2][0][0]} {elements_sw[2][0][1][1]} {elements_sw[2][0][1][0]}!!!\n"
+        f"\n{elements_sw[2][0][0]} {elements_sw[2][0][1][1]} {elements_sw[2][0][1][0]}!!!\n"
     )
 
 else:
-    print("\nBoth Player 1 and Player 2 Draw!!")
+    print("\nBoth Player 1 and Player 2 Draw!!\n")
