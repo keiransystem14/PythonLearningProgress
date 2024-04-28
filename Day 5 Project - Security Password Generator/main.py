@@ -71,17 +71,28 @@ password = []
 # For loop for letters is used to randomly generate numbers from 1 to the number of letters the user wants.
 # Then use the random.choice() function to randomly generate the number of letters (strings) from the letters list.
 # Once the number of letters is randomly generated, it passes the letters from variable generate_letter variale into an empty into a password variable which contains an empty list.
+# Random.shuffle() function is where it re-organizes the letters, numbers and symbols in the list.
+# Then concactinate the strings within the list using .join() function and print the randomly generated password in letters.
 
 for generate_letter in range(1, number_of_letters + 1):
     generate_letter = random.choice(letters)
     password += generate_letter
-
-# Then concactinate the strings within the list using .join() function and print the randomly generated password in letters.
-
-generate_password = "".join(password)
-print(generate_password)
+    random.shuffle(password)
 
 
-# For loop for numbers
+for generate_symbols in range(1, number_of_symbols + 1):
+    generate_symbols = random.choice(symbols)
+    password += generate_symbols
+    random.shuffle(password)
 
-# For loop for symbols
+for generate_numbers in range(1, number_of_numbers + 1):
+    generate_numbers = random.choice(numbers)
+    password += generate_numbers
+    random.shuffle(password)
+
+# Then concactinate the strings within the list using .join() function after letters, numbers and symbols are randomly generated in a list
+
+join_password = "".join(password)
+print(join_password)
+
+# Use Random.shuffle function to swap the characters to make the password complex.
