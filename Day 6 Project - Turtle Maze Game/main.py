@@ -1,7 +1,7 @@
 import turtle
 import maze
 
-
+# Create the Turtle figure
 turtle_figure = turtle.Turtle()
 turtle_figure.penup()
 turtle_figure.goto(80, -250)
