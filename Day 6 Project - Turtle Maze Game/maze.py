@@ -15,7 +15,7 @@ turtle_maze = turtle.Turtle()
 turtle_maze.width(8)
 turtle_maze.hideturtle()
 
-turtle_maze.speed(0)
+turtle_maze.speed(2)
 
 # Creates the size of the maze
 
