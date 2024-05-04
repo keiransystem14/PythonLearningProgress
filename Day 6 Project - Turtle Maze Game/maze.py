@@ -1,5 +1,6 @@
 import turtle
 
+
 screen = turtle.Screen()
 screen.tracer(0)
 
@@ -15,7 +16,7 @@ turtle_maze = turtle.Turtle()
 turtle_maze.width(8)
 turtle_maze.hideturtle()
 
-turtle_maze.speed(2)
+turtle_maze.speed(8)
 
 # Creates the size of the maze
 
