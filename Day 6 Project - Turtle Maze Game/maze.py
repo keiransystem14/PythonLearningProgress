@@ -1,8 +1,8 @@
 import turtle
 
-
 screen = turtle.Screen()
 screen.tracer(0)
+screen.setup(width=1200, height=2400)
 
 # The width of the boxes
 
