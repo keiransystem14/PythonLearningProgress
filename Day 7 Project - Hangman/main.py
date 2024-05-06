@@ -14,8 +14,11 @@ random_word.split()
 
 user_guess = input("Guess a letter: ")
 
+# Blank words
 blank_list = []
 
+# It scans through each letter in the word to see if it matches with the user guess. If it does, it would pass the user guess into a blank word python list and print out correct letter. If user guess is incorrect, it will print out incorrect letter.
+# This will be done in a iteration until all the letters in the word have been checked.
 for check_word in random_word:
     if check_word == user_guess:
         blank_list.append(user_guess)
