@@ -20,19 +20,13 @@ for letter in random_word:
 # Ask the user to guess a letter
 user_guess = input("Guess a letter: ")
 
-# Initialized at position 0
-position = 0
-
-# Iterates each letter in the random word
-for check_letter in random_word:
-    # If user's guess matches with current letter in the random word
-    if check_letter in user_guess:
+# Iterates each letter in the random word using range function to loop through between 0 and the end of the random word.
+for position in range(len(random_word)):
+    # It will assign the letter from random_word at position 0 to a variable called letter.
+    letter = random_word[position]
+    # If user's guess matches with the current letter within the position of the random word
+    if letter == user_guess:
         # Replace the "_" at the current position with the user guess
-        display[position] = user_guess
-    else:
-        print("Incorrect letter")
-
-    # Move to the next position on the display list
-    position += 1
+        display[position] = letter
 
 print(display)
