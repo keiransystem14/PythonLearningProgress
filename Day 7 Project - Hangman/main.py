@@ -1,73 +1,9 @@
 import random
+from hangman_art import *
+from hangman_words import *
 
-stages = [
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========""",
-    """
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-""",
-]
-
-# Create a Word list using Python lists
-
-word_list = ["canada", "ghana", "germany"]
+# Print out the hangman logo
+print(hangman)
 
 # Empty list called display
 display = []
@@ -87,6 +23,9 @@ for letter in random_word:
 # We assume that the hangman game is running
 hangman_game_running = True
 
+# Store a set of characters the user already guessed.
+guessed_letters = set()
+
 while hangman_game_running:
 
     # It loops through the condition until there isn't any blanks left in the display list
@@ -95,28 +34,36 @@ while hangman_game_running:
         # Ask the user to guess a letter
         user_guess = input("Guess a letter: ")
 
-        if user_guess in random_word:
-            # Iterates each letter in the random word using range function to loop through between 0 and the end of the random word.
-            for position in range(len(random_word)):
-                # It will assign the letter from random_word at position 0 to a variable called letter.
-                letter = random_word[position]
-                # If user's guess matches with the current letter within the position of the random word
-                if letter == user_guess:
-                    # Replace the "_" at the current position with the user guess
-                    display[position] = letter
-                    print(display)
+        # If the the letter that the user guessed is not used, it executes the for loop and checks for a match.
+        if user_guess not in guessed_letters:
+            if user_guess in random_word:
+                # Iterates each letter in the random word using range function to loop through between 0 and the end of the random word.
+                for position in range(len(random_word)):
+                    # It will assign the letter from random_word at position 0 to a variable called letter.
+                    letter = random_word[position]
+                    # If user's guess matches with the current letter within the position of the random word
+                    if letter == user_guess:
+                        # Replace the "_" at the current position with the user guess
+                        display[position] = letter
+                        print(display)
+                        guessed_letters.add(user_guess)
 
-        # At each turn if the guess is wrong, they lose a life.
+            # At each turn if the guess is wrong, they lose a life.
+            else:
+                lives -= 1
+                print(
+                    f"You guessed `{user_guess}, that is not in the word. You lose a life"
+                )
+                # Print current stage which corresponds to the number of lives.
+                print(stages[lives])
+                guessed_letters.add(user_guess)
+
+                # The player lost all the lives which means it sets hangman_game running to false and exits the loop
+                if lives == 0:
+                    print("You Lose!!")
+                    hangman_game_running = False
         else:
-            lives -= 1
-            # Update the current stage based on the number of incorrect guesses
-            current_index = min(lives, len(stages) - 1)
-            # Print current stage
-            print(stages[current_index])
-
-        if lives == 0:
-            print("You Lose!!")
-            hangman_game_running = False
+            print(f"You've already guessed the letter {user_guess}")
 
     else:
         # Join the elements in the python list into one word
