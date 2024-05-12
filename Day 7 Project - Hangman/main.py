@@ -5,12 +5,28 @@ from hangman_words import *
 # Print out the hangman logo
 print(hangman)
 
+# Print message
+print("\n Here's how to play: ")
+print("\n1. You'll be presented with a random word, represented by a series of blanks.")
+print(
+    "\n2. Guess a letter. If it's correct, the blanks will be filled in with that letter."
+)
+print(
+    "\n3. If your guess is incorrect, you'll lose a life. You have a total of six lives."
+)
+print("\n4. If you lose all your lives, the game is over and you lose. ")
+print(
+    "\n5. If you successfully fill in all the blanks, the word will be revealed and you win the game."
+)
+print("\n Good luck! \n")
+
 # Empty list called display
 display = []
 
 # Choose a word randomly using random.choice function within the random module to choose a word from the list randomly
 
 random_word = random.choice(word_list)
+# print(random_word)
 
 # The user starts with 6 lives.
 lives = 6
@@ -66,7 +82,8 @@ while hangman_game_running:
             print(f"You've already guessed the letter {user_guess}")
 
     else:
-        # Join the elements in the python list into one word
+        # Join the elements in the python list into one word and the game ends
         join_string = "".join(display)
         print(join_string)
         print("You win the game!!")
+        hangman_game_running = False
