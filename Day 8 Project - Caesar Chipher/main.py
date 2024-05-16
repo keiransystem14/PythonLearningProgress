@@ -48,7 +48,7 @@ def encrypt(text, shift):
 
                 # It the position of the letter inside the alphabet python list using the index() function.
                 index = alphabet.index(alpha_check)
-                index += shift
+
                 print(index)
 
 
