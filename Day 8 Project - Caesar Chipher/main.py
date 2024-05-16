@@ -34,6 +34,8 @@ shift = int(input("Type the shift number:\n"))
 
 def encrypt(text, shift):
 
+    encrypted_string = []
+
     # It iterates through the text the user has inputted
     for position in range(0, len(text)):
 
@@ -49,7 +51,18 @@ def encrypt(text, shift):
                 # It the position of the letter inside the alphabet python list using the index() function.
                 index = alphabet.index(alpha_check)
 
-                print(index)
+                # Shifts each letter in the text forwards as part of encrypting the text.
+                new_position = index + shift
+
+                # Adds the a new letter within the index of the new position into empty python list
+                encrypted_string += alphabet[new_position]
+
+    # Combines all the letters into one word to complete the encrypted message.
+    encrypted_message = "".join(encrypted_string)
+
+    # prints the enrcrypted message
+    print(encrypted_message)
 
 
+# Executes the function called encrypt with two inputs - text and shift
 encrypt(text, shift)
