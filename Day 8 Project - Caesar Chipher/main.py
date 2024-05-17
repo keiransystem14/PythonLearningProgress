@@ -52,8 +52,8 @@ def encrypt(plain_text, forward_shift):
                 # It the position of the letter inside the alphabet python list using the index() function.
                 index = alphabet.index(alpha_check)
 
-                # Shifts each letter in the text forwards as part of encrypting the text.
-                new_position = index + forward_shift
+                # Shifts each letter in the text forwards as part of encrypting the text. Also to ensure it stays within the range of alphabets.
+                new_position = (index + forward_shift) % len(alphabet)
 
                 # Adds the a new letter within the index of the new position into empty python list
                 encrypted_string += alphabet[new_position]
@@ -85,13 +85,13 @@ def decrypt(encoded_text, backward_shift):
                 # It the position of the letter inside the alphabet python list using the index() function.
                 index = alphabet.index(alpha_check)
 
-                # Shifts each letter in the text backwards as part of decrypting the text.
-                new_position = index - backward_shift
+                # Shifts each letter in the text backwards as part of decrypting it into plain text. Also to ensure it stays within the range of alphabets.
+                new_position = (index - backward_shift) % len(alphabet)
 
                 # Adds the a new letter within the index of the new position into empty python list
                 decrypt_string += alphabet[new_position]
 
-    # Combines all the letters into one word to complete the encrypted message.
+    # Combines all the letters into one word to complete the decrypting encoded text into plain text.
     decrypt_message = "".join(decrypt_string)
 
     # prints the enrcrypted message
