@@ -1,3 +1,5 @@
+from art import logo
+
 alphabet = [
     "a",
     "b",
@@ -27,9 +29,8 @@ alphabet = [
     "z",
 ]
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+# Print the art logo of Caesar Cipher in this program
+print(logo + "\n")
 
 
 def caesar(direction, text, shift):
@@ -60,6 +61,10 @@ def caesar(direction, text, shift):
                     # Adds the a new letter within the index of the new position into empty python list
                     encoded_string += alphabet[new_position]
 
+            # If a non-letter is in the text, it gets inserted into a empty python list
+            if letter_check not in alphabet:
+                encoded_string += letter_check
+
         # Combines all the letters into one word to complete the encrypted message.
         encrypted_message = "".join(encoded_string)
 
@@ -89,6 +94,10 @@ def caesar(direction, text, shift):
                     # Adds the a new letter within the index of the new position into empty python list
                     plaintext_string += alphabet[new_position]
 
+            # If a non-letter is in the text, it gets inserted into a empty python list
+            if letter_check not in alphabet:
+                encoded_string += letter_check
+
         # Combines all the letters into one word to complete the decrypting encoded text into plain text.
         decrypt_message = "".join(plaintext_string)
 
@@ -98,5 +107,20 @@ def caesar(direction, text, shift):
         print("This option doesn't exist.")
 
 
-# Call caesar function with parameters to execute the function.
-caesar(direction, text, shift)
+cipher_continue = True
+while cipher_continue:
+
+    # User input
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+
+    # Call caesar function with parameters to execute the function.
+    caesar(direction, text, shift)
+
+    # Asking the user if they want to continue to encode and decode otherwise they want to leave the program
+    reset = input("Type 'yes' if you want to go again. Otherwise type 'no'. \n").lower()
+
+    if reset == "no":
+        cipher_continue = False
+        print("Goodbye!!")
