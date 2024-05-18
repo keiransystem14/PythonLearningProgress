@@ -33,7 +33,7 @@ alphabet = [
 print(logo + "\n")
 
 
-def caesar(direction, text, shift):
+def caesar(cipher_direction, cipher_text, cipher_shift):
 
     encoded_string = []
     plaintext_string = []
@@ -41,10 +41,10 @@ def caesar(direction, text, shift):
     # Checks if the user wanted to encrypt or decrypt by checking the directon variable with IF statements.
     if direction == "encode":
 
-        for position in range(0, len(text)):
+        for position in range(0, len(cipher_text)):
 
             # Starts going through the text by each character.
-            letter_check = text[position]
+            letter_check = cipher_text[position]
 
             # It iterates through the alphabet in order.
             for alpha_check in alphabet:
@@ -56,7 +56,7 @@ def caesar(direction, text, shift):
                     index = alphabet.index(alpha_check)
 
                     # Shifts each letter in the text forwards as part of encrypting the text. Also to ensure it stays within the range of alphabets.
-                    new_position = (index + shift) % len(alphabet)
+                    new_position = (index + cipher_shift) % len(alphabet)
 
                     # Adds the a new letter within the index of the new position into empty python list
                     encoded_string += alphabet[new_position]
@@ -69,15 +69,15 @@ def caesar(direction, text, shift):
         encrypted_message = "".join(encoded_string)
 
         # prints the enrcrypted message
-        print(f"The {direction} text is: {encrypted_message}")
+        print(f"\nThe {cipher_direction} text is: {encrypted_message}")
 
     elif direction == "decode":
 
         # It iterates through the text the user has inputted
-        for position in range(0, len(text)):
+        for position in range(0, len(cipher_text)):
 
             # Starts going through the text by each character.
-            letter_check = text[position]
+            letter_check = cipher_text[position]
 
             # It iterates through the alphabet in order.
             for alpha_check in alphabet:
@@ -89,7 +89,7 @@ def caesar(direction, text, shift):
                     index = alphabet.index(alpha_check)
 
                     # Shifts each letter in the text backwards as part of decrypting it into plain text. Also to ensure it stays within the range of alphabets.
-                    new_position = (index - shift) % len(alphabet)
+                    new_position = (index - cipher_shift) % len(alphabet)
 
                     # Adds the a new letter within the index of the new position into empty python list
                     plaintext_string += alphabet[new_position]
@@ -102,7 +102,7 @@ def caesar(direction, text, shift):
         decrypt_message = "".join(plaintext_string)
 
         # prints the enrcrypted message
-        print(f"The {direction} text is: {decrypt_message}")
+        print(f"\nThe {cipher_direction} text is: {decrypt_message}")
     else:
         print("This option doesn't exist.")
 
@@ -115,12 +115,12 @@ while cipher_continue:
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
-    # Call caesar function with parameters to execute the function.
-    caesar(direction, text, shift)
+    # Call caesar function with parameters with keyword arguments to execute the function.
+    caesar(cipher_direction=direction, cipher_text=text, cipher_shift=shift)
 
     # Asking the user if they want to continue to encode and decode otherwise they want to leave the program
     reset = input("Type 'yes' if you want to go again. Otherwise type 'no'. \n").lower()
 
     if reset == "no":
         cipher_continue = False
-        print("Goodbye!!")
+        print("\nGoodbye!!")
