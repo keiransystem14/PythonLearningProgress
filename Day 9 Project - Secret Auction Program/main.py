@@ -1,8 +1,10 @@
 from art import *
 import os
 
+print(auction_title + "\n")
+
 # Print Auction Logo
-print(auction_logo)
+print(auction_logo + "\n")
 
 # User Bidders Dictionary which is currently empty
 user_bidders = {}
