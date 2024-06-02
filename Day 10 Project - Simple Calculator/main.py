@@ -1,7 +1,5 @@
 from art import *
-
-# Print the calculator logo
-print(logo)
+import os
 
 
 # Define the addition operation
@@ -35,6 +33,10 @@ calculator_operations["/"] = division
 
 
 def calculator():
+
+    # Print the calculator logo
+    print(logo)
+
     # Prompt the user to input the first number and convert it to an integer
     first_number = float(input("What is the first number?: "))
 
@@ -81,6 +83,7 @@ def calculator():
             # If the user chooses to start a new calculation, set the flag to False and restart the calculator
             if new_calculation == "y":
                 continue_calculation = False
+                os.system("clear")  # Clears the current calculation
                 calculator()  # Recursive call takes place to restart the calculator.
             else:
                 # Set the flag to False and exits the program.
