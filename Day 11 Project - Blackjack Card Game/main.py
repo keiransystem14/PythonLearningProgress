@@ -23,9 +23,11 @@ def deal_cards():
 
 def calculate_score():
 
+    # Program accessing the users hand.
     user_first_hand = user[0]
     user_second_hand = user[1]
 
+    # Progran acccessubg the computer's hand.
     computer_first_hand = computer[0]
     computer_second_hand = computer[1]
 
@@ -39,5 +41,18 @@ def calculate_score():
     print(computer_total_score)
 
 
+def identify_blackjack():
+
+    # Checks if user has a 10 on their hand and Ace card which is 11 on their hand.
+    if 10 in user and 11 in user:
+        print("User Wins!!")
+    # Checks if computer has a 10 card and Ace card which is 11 on their hand.
+    elif 10 in computer and 11 in computer:
+        print("Computer Wins!!")
+    else:
+        print("There's no blackjack!!")
+
+
 deal_cards()
 calculate_score()
+identify_blackjack()
