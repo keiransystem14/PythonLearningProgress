@@ -4,11 +4,11 @@ import random
 user = []
 computer = []
 
+# Type of cards.
+cards = [11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
 
 def deal_cards():
-
-    # Type of cards.
-    cards = [11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
     # Number of cards to start with
     hand_size = 2
@@ -37,22 +37,45 @@ def calculate_score():
     # Total score for computer
     computer_total_score = computer_first_hand + computer_second_hand
 
-    print(user_total_score)
-    print(computer_total_score)
-
-
-def identify_blackjack():
-
     # Checks if user has a 10 on their hand and Ace card which is 11 on their hand.
     if 10 in user and 11 in user:
         print("User Wins!!")
     # Checks if computer has a 10 card and Ace card which is 11 on their hand.
     elif 10 in computer and 11 in computer:
-        print("Computer Wins!!")
+        print("User Lose!!")
     else:
         print("There's no blackjack!!")
+        # Checks if the score is over 21
+        if user_total_score > 21:
+            if 11 in user:
+                user_total_score += 1
+                print(user_total_score)
+
+            else:
+                print("You Lose!!")
+        else:
+            another_card = input("Do you want to get another card?").lower()
+
+            if another_card == "yes":
+                user.append(random.choice(cards))
+            elif another_card == "no":
+                if computer_total_score < 17:
+                    computer.append(random.choice(cards))
+                    computer_total_score += computer[2]
+                else:
+                    if computer_total_score > 21:
+                        print("You win!!")
+
+            print(f"User total score is {user_total_score}")
+            print(f"Computer total score is {computer_total_score}")
+
+            if computer_total_score > user_total_score:
+                print("You Lose!!")
+            elif computer_total_score < user_total_score:
+                print("You Win!!")
+            else:
+                print("You Draw!!")
 
 
 deal_cards()
 calculate_score()
-identify_blackjack()
