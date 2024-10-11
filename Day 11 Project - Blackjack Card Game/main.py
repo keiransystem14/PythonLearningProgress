@@ -3,7 +3,6 @@ from os import remove
 
 
 # Create a deal_card() function that uses the List below to return a random card.
-
 def deal_card():
 
     #List of cards in the deck.
@@ -12,16 +11,6 @@ def deal_card():
     card = random.choice(cards)
     return card
 
-# Users hand
-user_cards = []
-# Computers hand
-computer_cards = []
-
-user_cards.append(deal_card())
-computer_cards.append(deal_card())
-
-print(user_cards)
-print(computer_cards)
 
 def calculate_score(cards):
 
@@ -34,8 +23,41 @@ def calculate_score(cards):
         cards.remove(11)
         cards.append(1)
 
+    # It returns the total score of the cards.
     return sum(cards)
 
+def play_game():
+
+    # Users hand
+    user_cards = []
+    # Computers hand
+    computer_cards = []
+
+    # It gives two cards to Computer and user.
+    for _ in range(2):
+        user_cards.append(deal_card())
+        computer_cards.append(deal_card())
+
+    # Calculates the user total score
+    print(f"Your cards: {user_cards}, current score: {calculate_score(cards=user_cards)}.")
+    print("Computer's First card is:", user_cards[0])
+
+    multiple_cards = True
+
+    while multiple_cards:
+
+        another_card = input("Type 'yes' to get another card or 'no' to pass: ")
+
+        if another_card == "yes":
+            user_cards.append(deal_card())
+            print(f"Your cards: {user_cards}, current score: {calculate_score(cards=user_cards)}.")
+            print("Computer's First card is:", user_cards[0])
+        elif another_card == "no":
+            print(f"Your final hand: {user_cards}, final score: {calculate_score(cards=user_cards)}.")
+            print(f"Computer's hand: {computer_cards}, final score: {calculate_score(cards=computer_cards)}.")
+            multiple_cards = False
+
+play_game()
 
 #def compare():
 
