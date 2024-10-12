@@ -26,40 +26,71 @@ def calculate_score(cards):
     # It returns the total score of the cards.
     return sum(cards)
 
+#def compare():
+
+
+
 def play_game():
+
 
     # Users hand
     user_cards = []
     # Computers hand
     computer_cards = []
 
+    #User score
+    user_score = -1
+
+    #Computer score
+    computer_score = -1
+
+    game_over = False
+
+
     # It gives two cards to Computer and user.
     for _ in range(2):
         user_cards.append(deal_card())
         computer_cards.append(deal_card())
 
-    # Calculates the user total score
-    print(f"Your cards: {user_cards}, current score: {calculate_score(cards=user_cards)}.")
-    print("Computer's First card is:", user_cards[0])
+    """
 
-    multiple_cards = True
+        Create a while loop to demonstrate that if the user selects yes, it would go in a loop until the user says no. 
+        If answer is no then the condition changes to false.
 
-    while multiple_cards:
+    """
 
-        another_card = input("Type 'yes' to get another card or 'no' to pass: ")
+    while not game_over:
 
-        if another_card == "yes":
-            user_cards.append(deal_card())
-            print(f"Your cards: {user_cards}, current score: {calculate_score(cards=user_cards)}.")
-            print("Computer's First card is:", user_cards[0])
-        elif another_card == "no":
-            print(f"Your final hand: {user_cards}, final score: {calculate_score(cards=user_cards)}.")
-            print(f"Computer's hand: {computer_cards}, final score: {calculate_score(cards=computer_cards)}.")
-            multiple_cards = False
+        # Calculates the user total score
+        user_score = calculate_score(user_cards)
+        computer_score = calculate_score(computer_cards)
 
-play_game()
 
-#def compare():
+        print(f"Your cards: {user_cards}, current score: {user_score}.")
+        print("Computer's First card is:", computer_cards[0])
+
+        if user_score == 0 or computer_score == 0 or user_score > 21:
+            game_over = True
+        else:
+            user_should_deal = input("Type 'yes' to get another card or 'no' to pass: ")
+
+            if user_should_deal == "yes":
+                user_cards.append(deal_card())
+            elif user_should_deal == "no":
+                game_over = True
+
+    while computer_score != 0 and computer_score < 17:
+        computer_cards.append(deal_card())
+        computer_score = calculate_score(computer_cards)
+
+    print(f"Your final hand: {user_cards}, final score: {user_score}.")
+    print(f"Computer's hand: {computer_cards}, final score: {computer_score}.")
+
+
+play = input("Do you want to play the game of Blackjack 'Yes' or 'No': ")
+
+if play == "Yes".lower():
+    play_game()
 
 
 
